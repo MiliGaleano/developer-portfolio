@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHamburger } from '@fortawesome/free-solid-svg-icons'
-import {Link} from 'react-router-dom'
 
 const responsive = '@media (min-width: 650px)'
 
@@ -14,7 +13,7 @@ const HeaderDiv = styled.div`
     justify-content: space-between;
 `;
 
-const Logo = styled.h1`
+export const Logo = styled.h1`
     width: 60%;
     font-weight: 500;
     font-size: 1.5rem;
@@ -33,7 +32,6 @@ const HambIcon = styled.div`
     & svg {
         font-size: 1.5rem;
         color: #F2CC8F;
-        /* ${props => props.openMenu === true ? "F4F1DE" : "#F2CC8F"}; */
         padding: 10px;
         padding-top: 12px;
         z-index:1;
@@ -54,8 +52,9 @@ const MenuDesktop = styled.div`
     margin-right: 3%;
     justify-content: flex-end;
     align-items: center;
+    align-self: flex-end;
 
-    & a {
+    & p {
         font-size: 1.2rem;
         font-weight: 600;
         color: #3D4058;
@@ -63,24 +62,25 @@ const MenuDesktop = styled.div`
         text-decoration: none;
     }
 
-    & a:hover {
+    & p:hover {
         background-color: #E07A5F;
         color: #F2CC8F;
+        cursor: pointer;
     }
     }
 `;
 
-const Header = ({openMenu, handleMenu}) => {
+const Header = ({openMenu, handleMenu, scroll, handleScroll, el2, el3}) => {
     return(
         <HeaderDiv>
             <Logo>Mili Galeano</Logo>
             <HambIcon>
-                <FontAwesomeIcon props={openMenu ? 'true' : 'false'} icon={faHamburger} onClick={handleMenu}/>
+                {scroll && <FontAwesomeIcon icon={faHamburger} onClick={handleMenu}/>}
             </HambIcon>
             <MenuDesktop>
-                <Link to="/">Sobre mí</Link>
-                <Link to="/projects/p">Proyectos</Link>
-                <Link to="/projects/e">Contacto</Link>
+                <p onClick={scroll ? ()=> handleScroll(el2) : undefined}>About me</p>
+                <p onClick={scroll ? ()=> handleScroll(el3) : undefined}>Projects</p>
+                <p>Contact</p>
             </MenuDesktop>
         </HeaderDiv>
     )

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Header from '../components/header'
 import ModalMenu from '../components/modalMenu'
 import Typed from 'typed.js'
@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons'
 import fondo1 from '../assets/fondo1.svg'
 import SecondSection from '../components/secondSection'
+import SectionSkills from '../components/sectionSkills'
+import SectionProj from '../components/sectionProj'
 
 const responsive = '@media (min-width: 650px)'
 
@@ -47,13 +49,27 @@ const Presentacion = styled.div`
     color: #3D405B;
     text-align: left;
 
+    & span {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: transparent;
+        -moz-text-stroke-color: #3D405B;
+        -webkit-text-stroke-color: #3D405B;
+        -moz-text-stroke-width: 1px;  
+        -webkit-text-stroke-width: 1px;
+        text-shadow: .05em .05em rgba(24,25,36,0.2);
+    }
+
     ${responsive} {
         max-width: 800px;
         font-size: 5rem;
+
+        & span {
+            max-width: 800px;
+            font-size: 5rem;
+        }
     }
 `;
-
-
 
 const Home = () => {
     const [openMenu, setOpenMenu] = useState(false)
@@ -66,7 +82,7 @@ const Home = () => {
     useEffect(() => {
 
         const options = {
-            strings: ['Hola!', 'soy Mili', 'diseñadora gráfica y frontend developer'],
+            strings: ['<span>Hello!</span>', "I'm Mili", 'graphic designer and <span>frontend developer</span>'],
             typeSpeed: 100,
             backSpeed:80,
             startDelay:20,
@@ -83,18 +99,28 @@ const Home = () => {
     }, [])
 
     useEffect(()=> {
-        setTimeout(()=> setScroll(true), 11000)
+        setTimeout(()=> setScroll(true), 10000)
     }, [])
+
+    const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
+    const el2 = useRef();
+    const el3 = useRef();
+
+    const handleScroll = (x) => {
+        scrollToDiv(x)
+    }
 
     return(
         <div>
-            {openMenu && <ModalMenu></ModalMenu>}
-            <Header openMenu={openMenu} handleMenu={handleMenu}></Header>
+            {openMenu && <ModalMenu handleScroll={handleScroll} el2={el2} el3={el3}></ModalMenu>}
+            <Header openMenu={openMenu} handleMenu={handleMenu} scroll={scroll} handleScroll={handleScroll} el2={el2} el3={el3}></Header>
             <DivHome showarrow={scroll} >
                 <Presentacion id='instruction'></Presentacion>
-                <FontAwesomeIcon icon={faLongArrowAltDown}/>
+                <FontAwesomeIcon icon={faLongArrowAltDown} onClick={()=> scrollToDiv(el2)}/>
             </DivHome>
-            {scroll && <SecondSection></SecondSection>}
+            {scroll && <SecondSection reference={el2} scroll={scroll}></SecondSection>}
+            {scroll && <SectionSkills></SectionSkills>}
+            {scroll && <SectionProj reference={el3}></SectionProj>}
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
 
 const responsive = '@media (min-width: 650px)'
 
@@ -23,27 +22,27 @@ const ContenedorMenu = styled.div`
     display: flex;
     flex-direction: column;
 
-    & a {
+    & p {
         font-size: 1.5rem;
         font-weight: 600;
         color: #3D4058;
         padding: 20px 0;
         text-decoration: none;
     }
-
-    & a:hover {
+/* 
+    & p:hover {
         background-color: #E07A5F;
         color: #F2CC8F;
-    }
+    } */
 `;
 
-const ModalMenu = () => {
+const ModalMenu = ({handleScroll, el2, el3}) => {
     return(
         <ModalMenuDiv>
             <ContenedorMenu>
-                <Link to="/">Sobre mí</Link>
-                <Link to="/projects/p">Proyectos</Link>
-                <Link to="/projects/e">Contacto</Link>
+                <p onClick={()=> handleScroll(el2)}>About me</p>
+                <p onClick={()=> handleScroll(el3)}>Projects</p>
+                <p>Contact</p>
             </ContenedorMenu>
         </ModalMenuDiv>
     )
