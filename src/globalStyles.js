@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;
         font-size: 14px;
         scroll-behavior:smooth;
+        transition: 0.1s;
     }
 
     body{

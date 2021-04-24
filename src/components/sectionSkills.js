@@ -22,12 +22,12 @@ import 'swiper/components/pagination/pagination.scss';
 
 const responsive = '@media (min-width: 650px)'
 
-const DivSkills = styled.div`
+export const DivSkills = styled.div`
     width: 80%;
     margin-left: 10%;
 `;
 
-const ContenedorCards = styled.div`
+export const ContenedorCards = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -85,21 +85,21 @@ const SectionSkills = () => {
             <SobreMiH1>Skills</SobreMiH1>
             <Underline></Underline>
             <ContenedorCards>
-            <Swiper
-                spaceBetween={isDesktop ? 10 : !isTablet ? 20 : 30}
-                slidesPerView={isDesktop ? 4 : !isTablet ? 3 : 2}
-                pagination={{ clickable: true }}
-                loop={true}
-            >
-                <SwiperSlide><Skill name='React.js' skillimg={reactpng}></Skill></SwiperSlide>
-                <SwiperSlide><Skill name='Styled Components' skillimg={styledcomp}></Skill></SwiperSlide>
-                <SwiperSlide><Skill name='JavaScript' skillimg={jspng}></Skill></SwiperSlide>
-                <SwiperSlide><Skill name='Firebase' skillimg={FirebaseIcon}></Skill></SwiperSlide>
-                <SwiperSlide><Skill name='HTML5' skillimg={htmlpng}></Skill></SwiperSlide>
-                <SwiperSlide><Skill name='CSS3' skillimg={csspng}></Skill></SwiperSlide>
-                <SwiperSlide><Skill name='Bootstrap' skillimg={bootstrappng}></Skill></SwiperSlide>
-                <SwiperSlide><Skill name='Git' skillimg={gitpng}></Skill></SwiperSlide>
-            </Swiper>
+                <Swiper
+                    spaceBetween={isDesktop ? 10 : !isTablet ? 20 : 30}
+                    slidesPerView={isDesktop ? 4 : !isTablet ? 3 : 2}
+                    pagination={{ clickable: true }}
+                    loop={true}
+                >
+                    <SwiperSlide><Skill name='React.js' skillimg={reactpng}></Skill></SwiperSlide>
+                    <SwiperSlide><Skill name='Styled Components' skillimg={styledcomp}></Skill></SwiperSlide>
+                    <SwiperSlide><Skill name='JavaScript' skillimg={jspng}></Skill></SwiperSlide>
+                    <SwiperSlide><Skill name='Firebase' skillimg={FirebaseIcon}></Skill></SwiperSlide>
+                    <SwiperSlide><Skill name='HTML5' skillimg={htmlpng}></Skill></SwiperSlide>
+                    <SwiperSlide><Skill name='CSS3' skillimg={csspng}></Skill></SwiperSlide>
+                    <SwiperSlide><Skill name='Bootstrap' skillimg={bootstrappng}></Skill></SwiperSlide>
+                    <SwiperSlide><Skill name='Git' skillimg={gitpng}></Skill></SwiperSlide>
+                </Swiper>
             </ContenedorCards>
             <ContenedorCards2>
                 <ImgDesign src={pspng}></ImgDesign>

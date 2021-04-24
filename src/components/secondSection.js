@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
-import fondo2 from '../assets/fondo2.svg'
+import fondo2 from '../assets/fondo22.svg'
 import profile1 from '../assets/uno.jpg'
 import profile2 from '../assets/dos.jpg'
 import profile3 from '../assets/miligaleano.jpg'
@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagramSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
 const responsive = '@media (min-width: 650px)'
+const responsive2 = '@media (min-width: 1100px)'
 
 const moveArrow = keyframes`
   from { opacity: 0; }
@@ -24,7 +25,7 @@ export const DivSecondSec = styled.div`
         width: 100%;
         height: 42px;
         background: url(${fondo2}) no-repeat;
-        background-size: 100%;
+        background-size: cover;
     }
 `;
 
@@ -63,7 +64,7 @@ const DivPhoto = styled.div`
     height: 300px;
     border-radius: 50%;
 
-    ${responsive} {
+    ${responsive2} {
         width: 400px;
         height: 400px;
     }
@@ -83,7 +84,7 @@ const Photo = styled.div`
     position: relative;
     z-index:2;
 
-    ${responsive} {
+    ${responsive2} {
         background: url(${profile1}) no-repeat center;
         background-size: 100% auto;
         width: 300px;
@@ -96,7 +97,7 @@ const Photo = styled.div`
     }
 `;
 
-const PointedBg = styled.img`
+export const PointedBg = styled.img`
     position: absolute;
     width: 250px;
     z-index:1;
@@ -153,6 +154,7 @@ const WavyLine = styled.div`
     text-decoration-line: underline;
     animation: animate 6s linear infinite;
     -webkit-animation: animate 6s linear infinite;
+    cursor: default;
 
     @keyframes animate {
     0% { margin-right: 190px; }
@@ -178,7 +180,7 @@ export const SobreMiH1 = styled.h1`
     z-index:2;
 `;
 
-const TextSobreMi = styled.p`
+export const TextSobreMi = styled.p`
     width: 80%;
     font-size: 1rem;
     color: #3D405B;
@@ -205,7 +207,7 @@ const DivsDesktop = styled.div`
     justify-content: center;
     align-items: center;
 
-    ${responsive} {
+    ${responsive2} {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -214,7 +216,7 @@ const DivsDesktop = styled.div`
     }
 `;
 
-const Wavebg = styled.div`
+export const Wavebg = styled.div`
     display: none;
     
     ${responsive} {
@@ -222,7 +224,7 @@ const Wavebg = styled.div`
         width: 100%;
         height: 42px;
         background: url(${fondo2}) no-repeat;
-        background-size: 100%;
+        background-size: cover;
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
@@ -237,7 +239,7 @@ const UnderlineA = styled(Underline)`
     align-self: flex-start;
     left: 50px;
 
-    ${responsive} {
+    ${responsive2} {
     left: 10px;
     }
 `;

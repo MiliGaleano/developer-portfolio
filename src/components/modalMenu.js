@@ -36,14 +36,15 @@ const ContenedorMenu = styled.div`
     } */
 `;
 
-const ModalMenu = ({handleScroll, el2, el3}) => {
+const ModalMenu = ({handleScroll, el2, el3, el4}) => {
     return(
         <ModalMenuDiv>
             <ContenedorMenu>
                 <p onClick={()=> handleScroll(el2)}>About me</p>
                 <p onClick={()=> handleScroll(el3)}>Projects</p>
-                <p>Contact</p>
+                <p onClick={()=> handleScroll(el4)}>Contact</p>
             </ContenedorMenu>
+            
         </ModalMenuDiv>
     )
 }

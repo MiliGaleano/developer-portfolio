@@ -70,7 +70,7 @@ const MenuDesktop = styled.div`
     }
 `;
 
-const Header = ({openMenu, handleMenu, scroll, handleScroll, el2, el3}) => {
+const Header = ({openMenu, handleMenu, scroll, handleScroll, el2, el3, el4}) => {
     return(
         <HeaderDiv>
             <Logo>Mili Galeano</Logo>
@@ -80,7 +80,7 @@ const Header = ({openMenu, handleMenu, scroll, handleScroll, el2, el3}) => {
             <MenuDesktop>
                 <p onClick={scroll ? ()=> handleScroll(el2) : undefined}>About me</p>
                 <p onClick={scroll ? ()=> handleScroll(el3) : undefined}>Projects</p>
-                <p>Contact</p>
+                <p onClick={scroll ? ()=> handleScroll(el4) : undefined}>Contact</p>
             </MenuDesktop>
         </HeaderDiv>
     )

@@ -9,6 +9,7 @@ import fondo1 from '../assets/fondo1.svg'
 import SecondSection from '../components/secondSection'
 import SectionSkills from '../components/sectionSkills'
 import SectionProj from '../components/sectionProj'
+import ContactSection from '../components/contactSection'
 
 const responsive = '@media (min-width: 650px)'
 
@@ -105,6 +106,7 @@ const Home = () => {
     const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
     const el2 = useRef();
     const el3 = useRef();
+    const el4 = useRef();
 
     const handleScroll = (x) => {
         scrollToDiv(x)
@@ -112,15 +114,20 @@ const Home = () => {
 
     return(
         <div>
-            {openMenu && <ModalMenu handleScroll={handleScroll} el2={el2} el3={el3}></ModalMenu>}
-            <Header openMenu={openMenu} handleMenu={handleMenu} scroll={scroll} handleScroll={handleScroll} el2={el2} el3={el3}></Header>
+            {openMenu && <ModalMenu handleScroll={handleScroll} el2={el2} el3={el3} el4={el4}></ModalMenu>}
+            <Header openMenu={openMenu} handleMenu={handleMenu} scroll={scroll} handleScroll={handleScroll} el2={el2} el3={el3} el4={el4}></Header>
             <DivHome showarrow={scroll} >
                 <Presentacion id='instruction'></Presentacion>
                 <FontAwesomeIcon icon={faLongArrowAltDown} onClick={()=> scrollToDiv(el2)}/>
             </DivHome>
-            {scroll && <SecondSection reference={el2} scroll={scroll}></SecondSection>}
-            {scroll && <SectionSkills></SectionSkills>}
-            {scroll && <SectionProj reference={el3}></SectionProj>}
+            {scroll && 
+                <>
+                    <SecondSection reference={el2} scroll={scroll}></SecondSection>
+                    <SectionSkills></SectionSkills>
+                    <SectionProj reference={el3}></SectionProj>
+                    <ContactSection reference={el4}></ContactSection>
+                </>
+            }
         </div>
     )
 }
