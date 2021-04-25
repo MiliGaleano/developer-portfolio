@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const responsive = '@media (min-width: 650px)'
-
 const DivCardProj = styled.div`
     width: 300px;
     display: flex;
@@ -68,7 +66,7 @@ const CardProject = ({project}) => {
                 <DivTextProj>
                     <TitleProj>{project.name}</TitleProj>
                     <ContentProj>{project.text}<br></br>
-                        <span>{project.urltype !== 'demo' ? 'VIEW PROJECT ➟' : 'DEMO'}</span>
+                        <span>{project.urltype}</span>
                     </ContentProj>
                 </DivTextProj>
             </DivCardProj>

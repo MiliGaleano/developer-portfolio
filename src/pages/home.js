@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import Header from '../components/header'
 import ModalMenu from '../components/modalMenu'
 import Typed from 'typed.js'
@@ -10,6 +10,7 @@ import SecondSection from '../components/secondSection'
 import SectionSkills from '../components/sectionSkills'
 import SectionProj from '../components/sectionProj'
 import ContactSection from '../components/contactSection'
+import LangContext from '../context/languageContext'
 
 const responsive = '@media (min-width: 650px)'
 
@@ -76,14 +77,18 @@ const Home = () => {
     const [openMenu, setOpenMenu] = useState(false)
     const [scroll, setScroll] = useState(false)
 
+    const {contentLang} = useContext(LangContext)
+
     const handleMenu = () => {
         setOpenMenu(!openMenu)
     }
 
     useEffect(() => {
+        setScroll(false)
+        setTimeout(()=> setScroll(true), 10000)
 
         const options = {
-            strings: ['<span>Hello!</span>', "I'm Mili", 'graphic designer and <span>frontend developer</span>'],
+            strings: contentLang.homeComponent.Presentation,
             typeSpeed: 100,
             backSpeed:80,
             startDelay:20,
@@ -97,11 +102,11 @@ const Home = () => {
             typed.destroy()
         }
 
-    }, [])
+    }, [contentLang])
 
-    useEffect(()=> {
-        setTimeout(()=> setScroll(true), 10000)
-    }, [])
+    // useEffect(()=> {
+    //     setTimeout(()=> setScroll(true), 10000)
+    // }, [])
 
     const scrollToDiv = (ref) => window.scrollTo(0, ref.current.offsetTop);
     const el2 = useRef();
@@ -114,8 +119,8 @@ const Home = () => {
 
     return(
         <div>
-            {openMenu && <ModalMenu handleScroll={handleScroll} el2={el2} el3={el3} el4={el4}></ModalMenu>}
-            <Header openMenu={openMenu} handleMenu={handleMenu} scroll={scroll} handleScroll={handleScroll} el2={el2} el3={el3} el4={el4}></Header>
+            {openMenu && <ModalMenu handleMenu={handleMenu} handleScroll={handleScroll} el2={el2} el3={el3} el4={el4}></ModalMenu>}
+            <Header handleMenu={handleMenu} scroll={scroll} handleScroll={handleScroll} el2={el2} el3={el3} el4={el4}></Header>
             <DivHome showarrow={scroll} >
                 <Presentacion id='instruction'></Presentacion>
                 <FontAwesomeIcon icon={faLongArrowAltDown} onClick={()=> scrollToDiv(el2)}/>

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHamburger } from '@fortawesome/free-solid-svg-icons'
+import LangContext from '../context/languageContext'
 
 const responsive = '@media (min-width: 650px)'
+const responsive2 = '@media (min-width: 900px)'
 
-const HeaderDiv = styled.div`
+export const HeaderDiv = styled.div`
     width: 100%;
     background-color: #E07A5F;
     display: flex;
@@ -52,7 +54,6 @@ const MenuDesktop = styled.div`
     margin-right: 3%;
     justify-content: flex-end;
     align-items: center;
-    align-self: flex-end;
 
     & p {
         font-size: 1.2rem;
@@ -68,9 +69,16 @@ const MenuDesktop = styled.div`
         cursor: pointer;
     }
     }
+
+    ${responsive2} {
+        align-self: flex-end;
+    }
 `;
 
-const Header = ({openMenu, handleMenu, scroll, handleScroll, el2, el3, el4}) => {
+const Header = ({ handleMenu, scroll, handleScroll, el2, el3, el4}) => {
+
+    const {setLang, contentLang} = useContext(LangContext)
+
     return(
         <HeaderDiv>
             <Logo>Mili Galeano</Logo>
@@ -78,9 +86,10 @@ const Header = ({openMenu, handleMenu, scroll, handleScroll, el2, el3, el4}) => 
                 {scroll && <FontAwesomeIcon icon={faHamburger} onClick={handleMenu}/>}
             </HambIcon>
             <MenuDesktop>
-                <p onClick={scroll ? ()=> handleScroll(el2) : undefined}>About me</p>
-                <p onClick={scroll ? ()=> handleScroll(el3) : undefined}>Projects</p>
-                <p onClick={scroll ? ()=> handleScroll(el4) : undefined}>Contact</p>
+                <p onClick={scroll ? ()=> handleScroll(el2) : undefined}>{contentLang.headerComponent.Menu[0]}</p>
+                <p onClick={scroll ? ()=> handleScroll(el3) : undefined}>{contentLang.headerComponent.Menu[1]}</p>
+                <p onClick={scroll ? ()=> handleScroll(el4) : undefined}>{contentLang.headerComponent.Menu[2]}</p>
+                <p onClick={() => setLang(`${contentLang.headerComponent.SetLanTo}`)}>{contentLang.headerComponent.Menu[3]}</p>
             </MenuDesktop>
         </HeaderDiv>
     )

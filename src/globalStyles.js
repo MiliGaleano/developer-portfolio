@@ -18,6 +18,10 @@ export const GlobalStyles = createGlobalStyle`
         overflow-x: hidden;
     }
 
+    ul {
+        list-style: none;
+    }
+
     a {
         text-decoration: none;
         color: inherit;

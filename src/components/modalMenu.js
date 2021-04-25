@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
+import LangContext from '../context/languageContext'
 
 const responsive = '@media (min-width: 650px)'
 
@@ -36,13 +37,27 @@ const ContenedorMenu = styled.div`
     } */
 `;
 
-const ModalMenu = ({handleScroll, el2, el3, el4}) => {
+const ModalMenu = ({handleMenu, handleScroll, el2, el3, el4}) => {
+
+    const {lang, setLang, contentLang} = useContext(LangContext)
+
+    const handleClick = (x) => {
+        handleScroll(x)
+        handleMenu()
+    }
+
+    const handleClickLang = () => {
+        setLang(`${contentLang.headerComponent.SetLanTo}`)
+        handleMenu()
+    }
+
     return(
         <ModalMenuDiv>
             <ContenedorMenu>
-                <p onClick={()=> handleScroll(el2)}>About me</p>
-                <p onClick={()=> handleScroll(el3)}>Projects</p>
-                <p onClick={()=> handleScroll(el4)}>Contact</p>
+                <p onClick={()=> handleClick(el2)}>{contentLang.headerComponent.Menu[0]}</p>
+                <p onClick={()=> handleClick(el3)}>{contentLang.headerComponent.Menu[1]}</p>
+                <p onClick={()=> handleClick(el4)}>{contentLang.headerComponent.Menu[2]}</p>
+                <p onClick={handleClickLang}>{contentLang.headerComponent.Menu[3]}</p>
             </ContenedorMenu>
             
         </ModalMenuDiv>

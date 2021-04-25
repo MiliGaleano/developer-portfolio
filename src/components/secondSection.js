@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled, {keyframes} from 'styled-components'
 import fondo2 from '../assets/fondo22.svg'
 import profile1 from '../assets/uno.jpg'
@@ -8,6 +8,7 @@ import pointsbg2 from '../assets/pointsbg-01.svg'
 import {Underline} from './sectionSkills'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagramSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
+import LangContext from '../context/languageContext'
 
 const responsive = '@media (min-width: 650px)'
 const responsive2 = '@media (min-width: 1100px)'
@@ -233,7 +234,7 @@ export const Wavebg = styled.div`
     }
 `;
 
-const UnderlineA = styled(Underline)`
+export const UnderlineA = styled(Underline)`
     width: 220px;
     z-index:0;
     align-self: flex-start;
@@ -245,6 +246,8 @@ const UnderlineA = styled(Underline)`
 `;
 
 const SecondSection = ({reference, scroll}) => {
+    const {contentLang} = useContext(LangContext)
+
     return (
         <SecondSecCont ref={reference}>
             <DivSecondSec></DivSecondSec>
@@ -264,9 +267,9 @@ const SecondSection = ({reference, scroll}) => {
                     </DivPhoto>
                 </DivsDesktop>
                 <DivsDesktop alignLeft>
-                    <SobreMiH1>About me</SobreMiH1>
+                    <SobreMiH1>{contentLang.SecondSectionComponent.Title}</SobreMiH1>
                     <UnderlineA></UnderlineA>
-                    <TextSobreMi>I'm a frontend developer and <a href='https://miligaleano.github.io/MyWebsite/' target='_blank' rel='noreferrer'>graphic designer</a>. I enjoy doing projects that challenge me to learn new things. I'm currently looking for a full-time role where I can continue to learn and use my skills in real projects.</TextSobreMi>
+                    <TextSobreMi>{contentLang.SecondSectionComponent.Description[0]}<a href='https://miligaleano.github.io/MyWebsite/' target='_blank' rel='noreferrer'>{contentLang.SecondSectionComponent.Description[1]}</a>{contentLang.SecondSectionComponent.Description[2]}</TextSobreMi>
                 </DivsDesktop>
             </section>
             <Wavebg></Wavebg>

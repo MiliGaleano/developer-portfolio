@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import styled from 'styled-components'
 import {SobreMiH1, TextSobreMi} from './secondSection'
 import {Underline, DivSkills} from './sectionSkills'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagramSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
+import LangContext from '../context/languageContext'
 
 const responsive = '@media (min-width: 650px)'
 
@@ -46,11 +47,14 @@ const IconsContact = styled.div`
 `;
 
 const ContactSection = ({reference}) => {
+
+    const {contentLang} = useContext(LangContext)
+
     return(
         <DivSkills ref={reference}>
-            <SobreMiH1>Contact</SobreMiH1>
+            <SobreMiH1>{contentLang.ContactSectionComponent.Title}</SobreMiH1>
             <ContactUnderline></ContactUnderline>
-            <TextSobreMi>If you'd like to work with me or have any questions about my work let's get in touch!</TextSobreMi>
+            <TextSobreMi>{contentLang.ContactSectionComponent.Text}</TextSobreMi>
             <Mail href="mailto:mmiligaleano@gmail.com">mmiligaleano@gmail.com</Mail>
             <IconsContact>
                 <a href='https://www.linkedin.com/in/milagros-galeano/' target='_blank' rel='noreferrer'><FontAwesomeIcon icon={faLinkedin} /></a>
