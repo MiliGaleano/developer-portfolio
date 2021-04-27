@@ -2,7 +2,7 @@
   "name": "developer-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://miligaleano.github.io/js-studygroup-portfolio",
+  "homepage": "https://miligaleano.github.io/developer-portfolio",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
