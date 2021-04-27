@@ -1,9 +1,9 @@
 import ProjImg1 from '../assets/blessed2.png'
 import ProjImg2 from '../assets/vacunAr2.png'
-import ProjImg3 from '../assets/pomodoro.png'
+import ProjImg3 from '../assets/pronostico2.png'
 import ProjImg4 from '../assets/piedrapapeltijera.png'
-import ProjImg5 from '../assets/turismo.png'
-import ProjImg6 from '../assets/deimosyfobos.png'
+import ProjImg6 from '../assets/turismo.png'
+import ProjImg5 from '../assets/pomodoro.png'
 import blessed1 from '../assets/blessed1.png'
 import blessed3 from '../assets/blessed3.png'
 import blessed4 from '../assets/blessed4.gif'
@@ -12,6 +12,11 @@ import vacunar1 from '../assets/vacunAr1.png'
 import vacunar3 from '../assets/vacunAr3.png'
 import vacunar4 from '../assets/vacunAr4.png'
 import vacunar5 from '../assets/vacunAr5.png'
+import pronostico1 from '../assets/pronostico1.png'
+import pronostico3 from '../assets/pronostico3.png'
+import pronostico4 from '../assets/pronostico4.png'
+import pronostico5 from '../assets/pronostico5.png'
+
 
 export const EN = {
     language: "English",
@@ -33,10 +38,10 @@ export const EN = {
         Title: 'Projects',
         Projects: [{img:`${ProjImg1}`, name:'BLessed App', text:'A watchlist app where you can keep track of the movies and series you have watched, make your favourites list and find new things to watch.', urltype: 'VIEW PROJECT ➟', src:'/projects/Blessed'},
                     {img:`${ProjImg2}`, name:'VacunAr App', text:'An app to keep your Immunization registry organized. Save your vaccination records and find the nearest place to take your next vaccine.', urltype: 'VIEW PROJECT ➟', src:'/projects/Vacunar'},
-                    {img:`${ProjImg3}`, name:'Pomodoro & ToDo', text:'This web app will help you organice your day. Build your todo list and set your pomodoro clock to make your day more productive.', urltype: 'VIEW PROJECT ➟', src:'/projects/Pomodoro'},
+                    {img:`${ProjImg3}`, name:'Weather App', text:'In this web app you can check the weather info for your current position or for any city in the world for today or the next few days.', urltype: 'VIEW PROJECT ➟', src:'/projects/Pronostico'},
                     {img:`${ProjImg4}`, name:'Rock-Paper-Scissors', text:"Play against the computer this classic game or follow Sheldon Cooper's advice and try the new version of rock paper scissors lizard spock.", urltype: 'DEMO', src:'https://miligaleano.github.io/Rock-Paper-Scissors/'},
-                    {img:`${ProjImg5}`, name:'Turismo', text:'Web page where you can find where to go and what to do while travelling in Argentina. Check maps and currently and extended weather info.', urltype: 'DEMO', src:'https://miligaleano.github.io/Turismo/'},
-                    {img:`${ProjImg6}`, name:'Deimos & Fobos', text:'Deimos & Fobos landing page. Promoting the launching of their new documental series and virtual reality game.', urltype: 'DEMO', src:'https://miligaleano.github.io/Deimos-y-Fobos/'},
+                    {img:`${ProjImg5}`, name:'Pomodoro & ToDo', text:'This web app will help you organice your day. Build your todo list and set your pomodoro clock to make your day more productive.', urltype: 'DEMO', src:'https://miligaleano.github.io/Todo-React-App/'},
+                    {img:`${ProjImg6}`, name:'Turismo', text:'Web page where you can find where to go and what to do while travelling in Argentina. Check maps and currently and extended weather info.', urltype: 'DEMO', src:'https://miligaleano.github.io/Turismo/'},
                 ]
     },
     ContactSectionComponent: {
@@ -84,8 +89,28 @@ export const EN = {
                 Title: 'Things I learned',
                 Content: "VacunAr is really close to my heart because it was what introduced me to programming. I have changed the project entirely a few times. This last version helped to solidify a lot my React knowledge, such as using hooks or updating the states, and I worked hard to keep components as reusable as possible. I also got a lot of great practice with API integrations."
             },
-            NextProj: '/projects/Blessed',
+            NextProj: '/projects/Pronostico',
             img:[`${vacunar1}`,`${ProjImg2}`,`${vacunar3}`,`${vacunar4}`,`${vacunar5}`]
+        },
+        Pronostico: {
+            Title: 'Weather',
+            Subtitle: 'Check the weather around the world',
+            About: 'This is a React Application created as a personal project. You can check the weather in your current position or search for any city around the world. It uses Open Weather API for the info and Unsplash API for the beautiful photos.',
+            Tools: ['React & Styled Components', 'OpenWeather API', 'Unsplash API'],
+            Links: ['https://miligaleano.github.io/Pronostico', 'https://github.com/MiliGaleano/Pronostico'],
+            Challenges: {
+                Title: 'Challenges faced',
+                Subtitles: ['Unsplash API', 'Current position', 'OpenWeather API'],
+                Content:["This API is super easy to implement and helps you make your pages bautiful with the great photos it provides. Once I fetch the weather API the info is passed to the photo component where I call the Unsplash API using the weather description as a filter. At first, I was calling for a random photo using this weather description as the query, but the results were not always accurate so I ended up selecting photos and creating an array of IDs and filtering those.",
+                "When you first open the page the app shows you the weather info for your current position thank you to the geolocation current position method which allows you to get the device coordinates. Once the app got lat and lon for the device, it's passed to the function fetching the weather. There is a default position in case the user doesn't allow the app to get the location.",
+                "Openweather gives you a lot of info about the weather around the world. I decided to use two of their services, the 'current weather' for info about the exact moment of the API call and the '5 day forecast', which gives you a list of info for every 3 hours for the next 5 days. It also provides you with the weather icons which saves us a lot of time!"]
+            },
+            Learned:{
+                Title: 'Things I learned',
+                Content: "This project helped to solidify a lot my React knowledge, such as using hooks or updating the states and I had a lot of great practice with API integrations. This was my first time using Styled Components and I worked hard to keep components as reusable as possible."
+            },
+            NextProj: '/projects/Blessed',
+            img:[`${pronostico1}`,`${ProjImg3}`,`${pronostico3}`,`${pronostico4}`,`${pronostico5}`]
         },
     }
   };
@@ -110,10 +135,10 @@ export const EN = {
         Title: 'Proyectos',
         Projects: [{img:`${ProjImg1}`, name:'BLessed App', text:'Aplicación que te permite llevar registro de las series que miraste, armar tu lista de favoritas y encontrar nuevas cosas para mirar.', urltype: 'VER PROYECTO ➟', src:'/projects/Blessed'},
                     {img:`${ProjImg2}`, name:'VacunAr App', text:'Aplicación que te ayuda a llevar la libreta de vacunación encima, leer novedades sobre salud y encontrar el centro de vacunación más cercano.', urltype: 'VER PROYECTO ➟', src:'/projects/Vacunar'},
-                    {img:`${ProjImg3}`, name:'Pomodoro & ToDo', text:'This web app will help you organice your day. Build your todo list and set your pomodoro clock to make your day more productive.', urltype: 'VER PROYECTO ➟', src:'/projects/Pomodoro'},
+                    {img:`${ProjImg3}`, name:'Weather App', text:'En esta aplicación web puedes chequear la info del clima de hoy y de los próximos días, de tu posición actual o de cualquier ciudad del mundo.', urltype: 'VIEW PROJECT ➟', src:'/projects/Pronostico'},
                     {img:`${ProjImg4}`, name:'Rock-Paper-Scissors', text:'Juega contra la computadora al clásico piedra, papel o tijera, o redobla la apuesta jugando la versión de Sheldon Cooper.', urltype: 'DEMO', src:'https://miligaleano.github.io/Rock-Paper-Scissors/'},
-                    {img:`${ProjImg5}`, name:'Turismo', text:'Web de turismo Argentino. Descubre a dónde ir y qué hacer mientras recorres el país. Encuentra mapas e información del clima actual y extendido.', urltype: 'DEMO', src:'https://miligaleano.github.io/Turismo/'},
-                    {img:`${ProjImg6}`, name:'Deimos & Fobos', text:'Sitio web de Deimos & Fobos, promocionando su nueva serie documental y el lanzamiento de su juego de realidad virtual.', urltype: 'DEMO', src:'https://miligaleano.github.io/Deimos-y-Fobos/'},
+                    {img:`${ProjImg5}`, name:'Pomodoro & ToDo', text:'Esta aplicación web te ayudará a organizar mejor tus tiempos. Crea listas de actividades y activa el reloj pomodoro.', urltype: 'DEMO', src:'https://miligaleano.github.io/Todo-React-App/'},
+                    {img:`${ProjImg6}`, name:'Turismo', text:'Web de turismo Argentino. Descubre a dónde ir y qué hacer mientras recorres el país. Encuentra mapas e información del clima actual y extendido.', urltype: 'DEMO', src:'https://miligaleano.github.io/Turismo/'},
                 ]
     },
     ContactSectionComponent: {
@@ -125,7 +150,7 @@ export const EN = {
         Thanks: 'Gracias por leer!',
         Next: 'PRÓXIMO PROYECTO ➟',
         Blessed: {
-            Title: 'BLessed App',
+            Title: 'BLessed',
             Subtitle: 'Tu aplicación BL',
             About: 'BLessed es una aplicación web creada como proyecto personal. Te permite llevar registro de las series y películas que viste, armar tu lista de favoritas y encontrar nuevas cosas para mirar. La base de datos se actualiza todas las semanas y actualmente cuenta con más de 200 series. El proyecto se empezó usando solo HTML, CSS y JavaScript vanilla y recientemente fue reconstruído utilizando React y Firebase.',
             Tools: ['React', 'Firebase Auth', 'Firestore & Storage'],
@@ -161,8 +186,28 @@ export const EN = {
                 Title: 'Lo que aprendí',
                 Content: "VacunAr es un proyecto al que le tengo mucho cariño porque fue lo que me acercó a la programación. Esta es la tercera vez que creo la aplicación de cero, esta última versión me ayudó a solidificar mis conocimientos de React, como el uso de Hooks y la actualización de estados. Me enfoqué mucho en tratar de mantener los componentes lo más reusables posible. También gané un montón de práctica en integración de APIs."
             },
-            NextProj: '/projects/Blessed',
+            NextProj: '/projects/Pronostico',
             img:[`${vacunar1}`,`${ProjImg2}`,`${vacunar3}`,`${vacunar4}`,`${vacunar5}`]
+        },
+        Pronostico: {
+            Title: 'Weather',
+            Subtitle: 'Chequea el clima de cualquier ciudad del mundo',
+            About: 'Aplicación web creada con React como proyecto personal. Puedes consultar el clima en tu posición actual o buscar cualquier ciudad del mundo. Utiliza la API de OpenWeather para los datos del tiempo y la API de Unsplash para las hermosas fotos que acompañan cada pronóstico.',
+            Tools: ['React & Styled Components', 'OpenWeather API', 'Unsplash API'],
+            Links: ['https://miligaleano.github.io/Pronostico', 'https://github.com/MiliGaleano/Pronostico'],
+            Challenges: {
+                Title: 'Desafíos afrontados',
+                Subtitles: ['Unsplash API', 'Current position', 'OpenWeather API'],
+                Content:["Esta API es super fácil de implementar y te brinda una enorme cantidad de fotos de muy buena calidad que te ayudan a dejar más lindas tus páginas. Una vez que se obtiene la información del clima, esta se pasa al componente que se encarga de las fotos, donde se llama a la API utilizando como parámetro de filtro la descripción del clima actual. En un primer momento el llamado realizado era para obtener una foto random, pero a pesar de los filtros de búsqueda los resultados no eran siempre muy acertados, por lo que creé una lista de IDs de posibles fotos y se filtra a través de ellos.",
+                "Cuando el usuario ingresa a la página por primera vez, la aplicación le devuelve los resultados del clima de acuerdo a su posición acutal. Esto es gracias al método de 'geolocation current position', que te permite obtener las coordenadas del dispositivo utilizado. Una vez que se obtienen la latitud y longitud, se pasa la info a la función encargada de conseguir los datos del clima. En caso de que el usuario no autorice a la aplicación a ver su posición actual, hay coordenadas establecidas por defecto.",
+                "Openweather brinda una gran cantidad de información sobre el clima alrededor del mundo. En este caso se utilizaron dos de los servicios, 'current weather' que te devuelve información de el preciso momento en que se realiza la llamada, y '5 day forecast', que brinda una lista con la información del clima de los próximos 5 días, agrupados en períodos de 3 horas. Una de las grandes ventajas de esta API es que te permite realizar las llamadas tanto por el nombre de la ciudad como por las coordenadas. También te provee los íconos del clima."]
+            },
+            Learned:{
+                Title: 'Lo que aprendí',
+                Content: "Este proyecto me ayudó principalmente a solidificar mis conocimientos de React, principalmente el uso de hooks y las actualizaciones de estado, también fué una gran oportunidad para practicar integración de APIs. Fué también mi primera vez utilizando Styled Components y trabajé enfocada en mantener los componentes simples y reutilizables."
+            },
+            NextProj: '/projects/Blessed',
+            img:[`${pronostico1}`,`${ProjImg3}`,`${pronostico3}`,`${pronostico4}`,`${pronostico5}`]
         },
     }
   };

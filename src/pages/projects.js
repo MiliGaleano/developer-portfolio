@@ -46,6 +46,8 @@ const Projects = () => {
         project = contentLang.ProjectsPage.Blessed
     } else if (showProj === 'Vacunar') {
         project = contentLang.ProjectsPage.Vacunar
+    } else {
+        project = contentLang.ProjectsPage.Pronostico
     }
 
     return(
