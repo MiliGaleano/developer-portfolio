@@ -1,3 +1,8 @@
+# Hi!
+
+This is my developer portfolio, take a look at what I have been working on!
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
